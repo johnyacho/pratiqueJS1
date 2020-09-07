@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Video player</title>
+</head>
+
+<body>
+
+    <!-- Faire varie la video -->
+    <div>
+        <video src="./videos/projet-cv0.mp4" id="videos" class="video-medium"></video>
+        <input type="range" id="speedSlider" min="0.5" max="2" step="0.1" value="1" class="vertical">
+        <span id="speed">1X</span>
+    </div>
+    <div id="controls">
+        <button id="play">Play</button>
+        <button id="stop">Stop</button> Rechercher
+        <input type="range" id="seekbar" step="1" value="0">
+    </div>
+    <script type="text/javascript">
+        const btnVideo = document.querySelector('#videos');
+        const barSpeed = document.querySelector('#speedSlider');
+        const btnPlay = document.querySelector('#play');
+        const btnStop = document.querySelector('#stop');
+        const speed = document.querySelector('#speed');
+
+        const seekbar = document.querySelector('#seekbar')
+        const dureeVideo = btnVideo.duration;
+
+
+        // implement la barre de recherche
+        btnVideo.addEventListener('durationchange ok', setupSeekbar)
+        btnVideo.addEventListener('canplay', setupPlayer);
+        btnVideo.addEventListener('ended', clean);
+
+        seekbar.addEventListener('change', seekVideo);
+        seekbar.addEventListener('timeupdate', updateUI);
+
+
+        btnPlay.addEventListener('click', playVideo);
+        btnStop.addEventListener('click', stopVideo);
+        barSpeed.addEventListener('change', ajustSpeed);
+
+        function playVideo() {
+            if (btnVideo.paused) {
+                btnVideo.play();
+                btnPlay.innerText = 'Pause';
+            } else {
+                btnVideo.pause();
+                btnPlay.innerText = 'Play';
+            }
+        }
+
+        function setupSeekbar() {
+            console.log('durationchange');
+            seekbar.max = btnVideo.duration;
+        }
+
+        function seekVideo() {
+            btnVideo.currentTime = seekbar.value;
+        }
+
+        function updateUI() {
+            seekbar.value = btnVideo.currentTime;
+        }
+
+        function setupPlayer() {
+            setupSeekbar();
+            btnVideo.volume = 0.5;
+        }
+
+        function clean() {
+            if (btnVideo.paused) {
+                btnPlay.innerText = 'Play';
+            }
+        }
+
+        function stopVideo() {
+            btnVideo.currentTime = 0;
+        }
+
+        function ajustSpeed(event) {
+            console.log(event.target.value);
+            const currentPlayBackRate = event.target.value;
+            speed.innerHTML = `${currentPlayBackRate}X`;
+            btnVideo.playbackRate = currentPlayBackRate;
+
+        }
+    </script>
+
+</body>
+
+</html>

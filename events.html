@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Evenement</title>
+</head>
+
+<body>
+    <button id="salut">Salut</button>
+    <script>
+        const btnSalut = document.querySelector('#salut');
+        // ajout de l'evenement click
+        btnSalut.addEventListener('click', saluer);
+
+        function saluer() {
+            console.log('Bonjour, je m\'appelle Jean');
+        }
+        window.addEventListener('click', locate);
+
+        function locate() {
+
+            var x = event.clientX; // Get the horizontal coordinate
+            var y = event.clientY; // Get the vertical coordinate
+            console.log('position ' + '= (' + x + ', ' + y + ')');
+
+        }
+        // enfoncer une touche du clavier
+        window.addEventListener('keydown', getKeyCode);
+
+        function getKeyCode() {
+            console.log('KeyCode = ' + event.keyCode);
+            // console.log('touche: ' + event.key);
+        }
+
+        function getKeyCode() {
+            if (event.keyCode === 13) {
+                saluer();
+            }
+            console.log('touche: ' + event.key);
+        }
+    </script>
+
+</body>
+
+</html>

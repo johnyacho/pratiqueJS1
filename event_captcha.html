@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Evenement Captcha</title>
+</head>
+
+<body>
+    <!-- afficher les question et permettre a l'utilisateur de choisir 
+  sa reponse -->
+    <div id="question"></div>
+    <div id="result"></div>
+    <!-- l'utilisateur doit fournir la reponse en tout lettre, 
+    plus difficile pour une robot-->
+    <div id="answer"></div>
+    <!-- un champ text pour que l'utilisateur puisse saisir sa reponse -->
+    <input id="txtResult" type="text" placeholder="Votre resultat en lettres">
+
+    <script>
+        // creer un tableau d'objet de propriete(question, code, answer)
+        let captchaValue = [{
+                question: 'un plus trois',
+                code: [97, 107, 99],
+                answer: 'quatre'
+            }, {
+                question: 'six divise par deux',
+                code: [102, 111, 98],
+                answer: 'trois'
+            }, {
+                question: 'quatre multiplie par cinq',
+                code: [100, 106, 101],
+                answer: 'vingt'
+            },
+
+        ];
+        // recuperer chacun des divs
+        let question = document.querySelector('#question');
+        let result = document.querySelector('#result');
+        let answer = document.querySelector('#answer');
+        let txtResult = document.querySelector('#txtResult');
+
+        // compter le nombre d'element dans le tableau captchaValue
+        let nbAvailableQuestion = captchaValue.length;
+
+        let pickedQuestion = null;
+        let ishuman = false;
+        let presedKey = []; //pour conserver les touche
+        let resuktInLetters = []; //pour conserver la reponse en lettres
+
+        function choseQuestion() {
+            const index = Math.floor(Math.random() * 3);
+            const pickedQuestion = captchaValue[index];
+            const text = `Veuiller saisir votre reponse a l'aide du pave numerique ${pickedQuestion.question}</strong> (Echap pour recommencer votre saisie)`;
+
+            console.log(text);
+            display(text, question)
+
+        }
+
+        // Pour afficher les question
+        function display(what, where) {
+            where.innerHTML = what;
+        }
+
+        window.addEventListener('keydown', handlekeyboardEvent);
+
+        function handlekeyboardEvent() {
+            console.log(event.keyCode);
+            //si l'utilisateur appuie Echap, lui permette de recommencer
+            if (event.keyCode === 27) {
+                presedKey = []; //reinitialiser la saisie
+                console.log('saisissez a nouveau')
+            }
+        }
+    </script>
+
+</body>
+
+</html>

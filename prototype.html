@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pototype</title>
+</head>
+
+<body>
+    <script>
+        function Personne(nom, prenom, age, fonction) {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.fonction = fonction;
+        }
+        Personne.prototype.statut = 'Employees';
+        Personne.prototype.travel = function() {
+            console.log('Je suis' + Personne + 'Je voyage cette semaine');
+        }
+        console.log('Personne', Personne.prototype);
+
+        const em1 = new Personne("Koffi", "Julien", 30, "plongeur");
+        const em2 = new Personne('Bedard', 'Roger', 25, 'etudiant');
+        const em3 = new Personne('Boucher', 'Claude', 25, 'photographe');
+
+        em3.statut = "Directeur";
+
+        console.log('em1', em1.__proto__);
+        console.log('em2', em2.__proto__);
+        console.log('em3', em3);
+        console.log('key de em2', Object.keys(em2));
+        console.log('key de em3', Object.keys(em3));
+    </script>
+
+</body>
+
+</html>

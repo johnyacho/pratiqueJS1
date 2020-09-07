@@ -1,0 +1,12 @@
+/* redimensionner la video */
+
+.video-medium {
+    width: 740px
+}
+
+
+/* Pour positionner lr slider de controle */
+
+.vertical {
+    -webkit-appearance: slider-vertical;
+}

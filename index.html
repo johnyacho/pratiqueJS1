@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>fonction</title>
+</head>
+
+<body>
+    <button id="btnGreetings">Salut</button>
+    <script>
+        var greeting = document.querySelector('#btnGreetings');
+        greeting.addEventListener('click', function() {
+            console.log('click')
+        });
+
+        function greetings(firstName) {
+            console.log('Bonjour ' + firstName);
+        }
+        greetings('Jean');
+    </script>
+    <button id="btnEtudiant">Etudiant</button>
+    <script>
+        var btnEtudiant = document.querySelector('#btnEtudiant');
+        // ajout de clickEvent
+        btnEtudiant.addEventListener('click', function() {
+            const unEtudiant = Object.keys(etudiant);
+            console.log(unEtudiant);
+            console.log(etudiant.decrire);
+        });
+
+        function Personne(nom, prenom, age) {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+        }
+        var etudiant = {
+            name: new Personne('Acho', 'Jean', 40),
+            program: 'TI',
+            decrire: function() {
+                console.log('Je suis un etudiant');
+            }
+        }
+        console.log(etudiant);
+        console.log(etudiant.name.nom);
+        console.log(etudiant.name.prenom);
+        console.log(etudiant.name.age);
+        console.log(etudiant.program);
+        console.log(etudiant.decrire);
+    </script>
+</body>
+
+</html>
