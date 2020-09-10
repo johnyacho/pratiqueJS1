@@ -45,6 +45,7 @@
         btnStop.addEventListener('click', stopVideo);
         barSpeed.addEventListener('change', ajustSpeed);
 
+        // afficher pause/ Play sur le bouton 
         function playVideo() {
             if (btnVideo.paused) {
                 btnVideo.play();
@@ -54,7 +55,7 @@
                 btnPlay.innerText = 'Play';
             }
         }
-
+        // permet de se deplacer sur la video
         function setupSeekbar() {
             console.log('durationchange');
             seekbar.max = btnVideo.duration;

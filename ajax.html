@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Asynchronous JavaScript And XML</title>
+</head>
+
+<body>
+    <script>
+        // Creeer une nouvelle promesse
+        console.log('Je vais faire mon test de Covid');
+
+        const maPromesseNegative = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve('Super tu es teste negatif!');
+                reject('Desole tu es atteint du vovid 19, reste isole pour 14 jours.\nPresente toi a urgence Covid si tu des complications');
+            }, 5000);
+        })
+        console.log('Je retourne vivre ma vie.')
+
+        maPromesseNegative.then((data) => {
+            console.log(data);
+        }).catch((data2) => {
+            console.log(data2)
+        })
+    </script>
+
+</body>
+
+</html>

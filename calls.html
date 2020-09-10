@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Utulisation de call pour This</title>
+</head>
+
+<body>
+    <script>
+        const user1 = {
+            id: '123',
+            civility: 'M.',
+            name: {
+                first: 'jean',
+                last: 'Acho'
+            }
+        };
+        const user2 = {
+            id: '154',
+            civility: 'Mme.',
+            name: {
+                first: 'syntiche',
+                last: 'Akre'
+            }
+        };
+        const cours1 = {
+            tittle: 'apprendre le JavaScript',
+            duration: '2 semaine'
+
+        };
+        const cours2 = {
+            tittle: 'apprendre le Python',
+            duration: '1 semaine'
+
+        };
+
+        function register(course) {
+            console.log(this, course);
+            const message = `${this.civility} ${this.name.first}, vous est bien enregistre${this.civility === 'Mme.'? 'e': ' '} `;
+            console.log(message);
+        }
+        register.call(user1, cours2);
+        register.apply(user1, cours2);
+        console.log('**********************************');
+        register.call(user2, cours1);
+    </script>
+
+
+</body>
+
+</html>
