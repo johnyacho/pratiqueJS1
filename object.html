@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <script>
+        const etudiant = {
+                codePerm: 'AKRA25051201',
+                lastName: 'Akre',
+                firstName: 'Acho Jean',
+                program: 'TI',
+                age: 30
+            }
+            // obtenir les proprietes sous forme de tableau
+        const proprieteEtudiant = Object.keys(etudiant);
+        console.log(proprieteEtudiant);
+
+        // // obtenir les valeurs de propriete sous forme de tableau
+        const etudProprietyValue = Object.values(etudiant);
+        etudProprietyValue[4] = 25;
+        console.log(etudProprietyValue);
+
+
+        // obtenir les couole de valeurs et proprietes
+        const valueEtudiant = Object.entries(etudiant);
+        valueEtudiant.forEach(element => {
+            console.log(element)
+        });
+        // copier l'objet etudiant
+        const copieEtudiant = {...etudiant
+        };
+        console.log(copieEtudiant);
+        const copieEtudiant1 = JSON.parse(JSON.stringify(etudiant));
+        console.log(copieEtudiant1);
+    </script>
+
+</body>
+
+</html>
