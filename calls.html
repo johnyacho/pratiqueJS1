@@ -43,10 +43,16 @@
             const message = `${this.civility} ${this.name.first}, vous est bien enregistre${this.civility === 'Mme.'? 'e': ' '} `;
             console.log(message);
         }
-        register.call(user1, cours2);
-        register.apply(user1, cours2);
-        console.log('**********************************');
-        register.call(user2, cours1);
+        // register.call(user1, cours2);
+        // register.apply(user1, cours2);
+        // console.log('**********************************');
+        // register.call(user2, cours1);
+
+        // Avec bind on prepare d'avance le contexte de l'utilisateur
+        //.bind() return une function ici register(course) pour le user binder
+        const anRegister = register.bind(user1);
+        console.log(anRegister);
+        console.log(anRegister(cours1));
     </script>
 
 
