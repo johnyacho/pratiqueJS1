@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Manipulation des tableaux</title>
+</head>
+
+<body>
+    <script>
+        const maTab = [1, 5, ['nom', 'prenom'], {
+            cour1: 'anglais',
+            cours2: 'informatique'
+        }];
+        // bonne pratique, avoir des tableaux de meme type
+
+        // transformer une liste en tableau pour utiliser les methode de Array
+        let maTab1 = Array.of(1, 2, 3, 5);
+
+        // utilisation de map sur un tableau, arguments fonction a l'interieur d'une function
+        function multiply() {
+            const args = Array.from(arguments);
+            const tripple = args.map(function(number) {
+                return number * 3;
+            });
+            console.log(tripple);
+        }
+        multiply(5, 2, 3);
+
+        //rduce
+
+        maTabReduce = maTab1.reduce(additionner);
+
+        function additionner(acc, curr) {
+            return acc + curr;
+        }
+    </script>
+
+</body>
+
+</html>
