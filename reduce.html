@@ -22,13 +22,10 @@
             name: "pantalon",
             price: 70
         }];
-        let totalPrice = panier.reduce((acc, curr, index) => {
-            console.log(`acc: ${acc}, value: ${curr}, index: ${index}`);
-            acc += curr.price * curr.quantity;
-            return acc;
-        }, 0);
+        let totalPrice = panier.reduce((acc, curr) =>
+            (acc += curr.price * curr.quantity), 0);
 
-        console.log(totalPrice);
+        console.log('Prix total = ' + totalPrice);
     </script>
 
 </body>
