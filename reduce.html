@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fonction reduce</title>
+</head>
+
+<body>
+    <script>
+        const panier = [{
+            quantity: 2,
+            name: "veste",
+            price: 100
+        }, {
+            quantity: 5,
+            name: "chemise",
+            price: 40
+        }, {
+            quantity: 3,
+            name: "pantalon",
+            price: 70
+        }];
+        let totalPrice = panier.reduce((acc, curr, index) => {
+            console.log(`acc: ${acc}, value: ${curr}, index: ${index}`);
+            acc += curr.price * curr.quantity;
+            return acc;
+        }, 0);
+
+        console.log(totalPrice);
+    </script>
+
+</body>
+
+</html>
