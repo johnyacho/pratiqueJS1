@@ -25,7 +25,36 @@
         let totalPrice = panier.reduce((acc, curr) =>
             (acc += curr.price * curr.quantity), 0);
 
-        console.log('Prix total = ' + totalPrice);
+        console.log('Prix total = ' + totalPrice + '$');
+
+        const tableau = [{
+            prix: 20,
+            quantite: 2
+        }, {
+            prix: 42,
+            quantite: 1
+        }, {
+            prix: 15,
+            quantite: 3
+        }, {
+            prix: 20,
+            nom: "chemise"
+        }];
+
+        const tabSelonPrix = groupBy(tableau, "prix");
+        console.log(tabSelonPrix);
+
+        // fonction reduce qui permet de trier un tableau selon une propriete
+        function groupBy(tableau, propriete) {
+            return tableau.reduce((acc, curr) => {
+                const cle = curr[propriete];
+                if (!acc[cle]) {
+                    acc[cle] = [];
+                }
+                acc[cle].push(curr);
+                return acc;
+            }, {});
+        }
     </script>
 
 </body>
